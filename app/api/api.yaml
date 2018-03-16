@@ -1,0 +1,355 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: contract-api
+# during dev, should point to your local machine
+host: localhost:4000
+# basePath prefixes all resource paths
+basePath: /api
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+securityDefinitions:
+  auth-token:
+    x-authorize: security/auth.js
+    scopes:
+      default: Default Scope
+
+security:
+  - auth-token: [ default ]
+
+tags:
+  - name: auth
+    description: Auth namespace. 
+  - name: user
+    description: Users namespace.
+  - name: record
+    description: Records namespace.
+
+paths:
+
+  /auth/login:
+    post:
+      description: Attempt to log the user in
+      tags: [ auth ]
+      operationId: login
+
+      security: []
+
+      parameters:
+        - name: request
+          in: body
+          description: login request
+          required: true
+          schema:
+            $ref: "#/definitions/LoginRequest"
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"  
+
+  
+  /users/details/{id}:
+    post:
+      description: Retrieve the full details of a user object
+      tags: [ user ]
+      operationId: getUser
+      
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the user to be retrieved
+          required: true
+          type: string
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"  
+
+  /users/list:
+    post:
+      description: Retrieves all of the users for the authenticated user.
+      tags: [ user ]
+      operationId: getUsers
+
+      # security: [ 
+      #   default: [ admin ]
+      # ]
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /users/create:
+    post:
+      description: Creates a user object.
+      tags: [ user ]
+      operationId: createUser
+
+      parameters:
+        - name: request
+          in: body
+          description: The user object attributes required to update
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /users/update/{id}:
+    post:
+      description: Updates a user object.
+      tags: [ user ]
+      operationId: updateUser
+
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the user to update
+          required: true
+          type: string
+
+        - name: request
+          in: body
+          description: The user object attributes required to update
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /users/delete/{id}:
+    post:
+      description: Retrieves the full details of a single User
+      tags: [ user ]
+      operationId: deleteUser
+
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the user to be deleted
+          required: true
+          type: string
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /records/details/{id}:
+    post:
+      description: Retrieve the full details of a record object
+      tags: [ record ]
+      operationId: getRecord
+      
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the record to be retrieved
+          required: true
+          type: string
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /records/list:
+    post:
+      description: Retrieves all of the records for the authenticated user.
+      tags: [ record ]
+      operationId: getRecords
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /records/create:
+    post:
+      description: Creates a record object.
+      tags: [ record ]
+      operationId: createRecord
+
+      parameters:
+        - name: request
+          in: body
+          description: The record object attributes required to update
+          required: true
+          schema:
+            $ref: "#/definitions/Record"
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /records/update/{id}:
+    post:
+      description: Updates a record object.
+      tags: [ record ]
+      operationId: updateRecord
+
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the record to update
+          required: true
+          type: string
+
+        - name: request
+          in: body
+          description: The record object attributes required to update
+          required: true
+          schema:
+            $ref: "#/definitions/Record"
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+  /records/delete/{id}:
+    post:
+      description: Marks a record deleted.
+      tags: [ record ]
+      operationId: deleteRecord
+
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the record to be marked deleted
+          required: true
+          type: string
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Response"
+
+definitions:
+
+  LoginRequest:
+    description: Login Request
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+        description: User email
+      password:
+        type: string
+        description: User password
+
+  Response:
+    description: A standard error response for all API methods.
+    required:
+      - success
+      - message
+    properties:
+      success:
+        type: boolean
+        description: Determines if the response is successful or not.
+      data:
+        type: string
+        description: Core data of the response
+      code:
+        type: string
+        description: Constant values that can be used to programatically determine what error occurred.
+      message:
+        type: string
+        description: Localized error message that's safe for display to the user.
+
+  User:
+    description: The full details of a user.
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        description: User ID.
+
+  Record:
+    description: The full details of a record.
+    required:
+      - id
+    properties:
+      id:
+        type: string,
+        description: --
+      sampleData:
+        type: string
+        description: --

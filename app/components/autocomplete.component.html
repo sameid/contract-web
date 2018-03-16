@@ -1,0 +1,12 @@
+<div
+	ng-if="$ctrl.isVisible()" 
+	class="autocomplete-component">
+	<div
+		class="autocomplete-result"
+		ng-click="$ctrl.select()"
+		ng-mouseover="$ctrl.highlight(r)"
+		ng-class="{ 'autocomplete-result-hover': $ctrl.isHighlighted(r) }"
+		ng-repeat="r in $ctrl.results track by $index">
+		{{r}}
+	</div>
+</div>

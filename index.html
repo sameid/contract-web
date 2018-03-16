@@ -1,0 +1,54 @@
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="contract-web"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>contract-poc</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Libraries -->
+  <link rel="stylesheet" href="libs/turretcss.min.css">
+  <link rel="stylesheet" href="libs/ng-notify.min.css">
+  <!-- <link rel="stylesheet" href="libs/handsontable.min.css"> -->
+
+  <!-- App -->
+  <link rel="stylesheet" href="assets/css/linearicons.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <ui-view></ui-view>
+
+  <!-- Angular Dependencies -->
+  <script src="libs/angular.min.js"></script>
+  <script src="libs/angular-ui-router.min.js"></script>
+  <script src="libs/angular-debounce.min.js"></script>
+  <script src="libs/angular-swaggerific.js"></script>
+  <script src="libs/ng-notify.min.js"></script>
+
+  <!-- Utility Libraries -->
+  <script src="libs/numeral.min.js"></script>
+  <script src="libs/moment.min.js"></script>
+  <script src="libs/underscore-min.js"></script>
+  <script src="libs/md5.min.js"></script>
+
+  <!-- Internal Libs -->
+  <script src="assets/js/liga.js"></script>
+  <script src="assets/js/plain.js"></script>
+
+  <!-- App -->
+  <script src="app/contract-web.js"></script>
+
+  <!-- API -->
+  <script src="app/contract-api.js"></script>
+  </body>
+</html>

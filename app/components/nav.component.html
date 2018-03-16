@@ -1,0 +1,43 @@
+<header 
+    ng-if="$ctrl.isAuthenticated()" 
+    class="nav-header">
+    <div class="nav-bar">
+        <div class="nav-item">
+            Contract
+        </div>
+        <div class="nav-item">
+            <div class="nav-item-icon">
+                <span class="icon-register"></span>
+            </div>
+            <div class="nav-item-label">
+                <a href="/#!/create/new">Create</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-item-icon">
+                <span class="icon-papers"></span>
+            </div>
+            <div class="nav-item-label">
+                <a href="/#!/records">Records</a>
+            </div>
+        </div>
+        <div class="nav-item nav-item--right" 
+        	ng-click="$ctrl.signOut()">
+            <div class="nav-item-icon">
+                <span class="icon-enter"></span>
+            </div>
+            <div class="nav-item-label">
+                <a href="">Sign Out</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-item-icon">
+                <span class="icon-profile"></span>
+            </div>
+            <div class="nav-item-label">
+                {{$ctrl.name}}
+                <!-- <a href="/#!/settings/drivers">{{$ctrl.name}}</a> -->
+            </div>
+        </div>
+    </div>
+</header>

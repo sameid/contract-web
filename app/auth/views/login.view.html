@@ -1,0 +1,21 @@
+<div class="container max-width-xs padding-xl margin-top-l pseudo-card">
+    <h2 class="font-weight-thin clean-header">Contract - Sign In</h2>
+    <form role="form">
+        <label for="email">Email</label>
+        <input
+            ng-model="login.email"
+            type="email"
+            id="email"
+            placeholder="Enter Email">
+        <label for="password">Password</label>
+        <input
+            ng-model="login.password"
+            type="password"
+            id="password"
+            placeholder="Enter Password">
+        <button ng-click="login.login()" type="submit" class="button">Sign In</button>
+    </form>
+    <div class="margin-top-s">
+        <a class="font-size-s" href="/#!/forgot">Forgot your password?</a>
+    </div>
+</div>

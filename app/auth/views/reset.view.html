@@ -1,0 +1,31 @@
+<div class="container max-width-xs padding-xl margin-top-l pseudo-card">
+    <h2 class="font-weight-thin clean-header">Contract - Set Password</h2>
+    <form
+        ng-show="!reset.loading" 
+        name="resetForm">
+        <label for="newPassword">Verification Code</label>
+        <input
+            ng-model="reset.verificationCode"
+            type="text"
+            name="verificationCode"
+            placeholder="Code" 
+            required>
+        <label for="newPassowrd">New Password</label>
+        <input
+            ng-model="reset.newPassword"
+            type="password"
+            name="newPassword"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+            placeholder="New Password"
+            required>
+        <button 
+            ng-click="reset.resetPassword()" 
+            type="submit" 
+            class="button">
+            Verify
+        </button>
+    </form>
+    <div ng-show="reset.loading">
+        <span class="spinner"></span>
+    </div>
+</div>

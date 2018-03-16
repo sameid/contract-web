@@ -1,0 +1,64 @@
+<div class="container margin-top-xl">
+
+	<div class="grid">
+
+		<div class="grid-header">
+			<h2 class="clean-header">Records</h2>
+			<div>
+				<input 
+					placeholder="Search" 
+					class="input grid-search" 
+					type="text"
+					ng-model="ctrl.search" />
+			</div>
+		</div>
+		
+		<div ng-show="!ctrl.loading">
+
+			<div class="grid-results">
+				<div class="result-header">
+					<div
+	        			class="result-field-id"
+	        			ng-click="ctrl.sortBy('id')"
+	        			scope="col">
+	        			ID
+	        			<span
+	        				ng-show="ctrl.isSortBy('id')" 
+	        				class="icon-chevron-{{ctrl.getSortDirection()}}">	
+	        			</span>
+	        		</div>
+	        		<div
+	        			class="result-field-name"
+	        			ng-click="ctrl.sortBy('sample_data')"
+	        			scope="col">
+	        			SampleData
+	        			<span
+	        				ng-show="ctrl.isSortBy('sample_data')" 
+	        				class="icon-chevron-{{ctrl.getSortDirection()}}">	
+	        			</span>
+	        		</div>
+				</div>
+				
+				<div
+					ng-click="ctrl.viewRecord(r)"
+					ng-repeat="r in ctrl.items | filter:ctrl.search | orderBy:ctrl.property:ctrl.desc"
+					class="result"
+					ng-class="{ 'row-highlight': r.live }"
+					ng-class-odd="'result-odd'">
+
+			        <div class="result-field-name">{{r.id}}</div>
+			        <div class="result-field-name">{{r.sample_data}}</div>
+	      		</div>
+		    
+			</div>
+
+		</div>
+		<div ng-show="ctrl.loading">
+			<div class="spinner"></div>
+		</div>
+
+
+	</div>
+
+</div>
+

@@ -1,0 +1,104 @@
+{
+    "name": "contract-web",
+    "version": "0.0.1",
+    "description": "Dispatch system for GTA Limousine Services.",
+    "main": "index.html",
+    "repository": {
+        "url": "github.com/sameid/contract-web",
+        "type": "git"
+    },
+    "author": "sameid Usmani <sameid.usmani@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "angular": "1.5.8",
+        "angular-debounce": "1.1.0",
+        "angular-ui-router": "0.3.1",
+        "angular-swaggerific": "^0.0.3",
+        "moment": "2.15.2",
+        "ng-notify": "0.7.1",
+        "numeral": "1.5.3",
+        "turretcss": "4.0.4",
+        "underscore": "*",
+        "handsontable": "0.34.0",
+        "ng-handsontable": "0.13.0",
+        "blueimp-md5": "*"
+    },
+    "devDependencies": {
+        "del": "^2.2.2",
+        "gulp": "^3.9.1",
+        "gulp-clean-css": "^2.0.13",
+        "gulp-concat": "^2.6.0",
+        "gulp-connect": "^5.0.0",
+        "gulp-insert": "^0.5.0",
+        "gulp-minify-css": "^1.2.4",
+        "gulp-minify-html": "^1.0.6",
+        "gulp-rename": "^1.2.2",
+        "gulp-replace": "^0.5.4",
+        "gulp-sourcemaps": "^2.2.0",
+        "gulp-uglify": "^2.0.0",
+        "gulp-usemin": "^0.3.25",
+        "gulp-yaml": "^1.0.1",
+        "main-yarn-files": "^3.0.4",
+        "gulp-s3-upload": "1.6.6",
+        "yargs": "*"
+    },
+    "overrides": {
+        "angular": {
+            "main": [
+                "angular.min.js"
+            ]
+        },
+        "angular-debounce": {
+            "main": [
+                "dist/angular-debounce.min.js"
+            ]
+        },
+        "angular-ui-router": {
+            "main": [
+                "release/angular-ui-router.min.js"
+            ]
+        },
+        "moment": {
+            "main": [
+                "min/moment.min.js"
+            ]
+        },
+        "ng-notify": {
+            "main": [
+                "dist/ng-notify.min.css",
+                "dist/ng-notify.min.js"
+            ]
+        },
+        "numeral": {
+            "main": [
+                "min/numeral.min.js"
+            ]
+        },
+        "turretcss": {
+            "main": [
+                "dist/turretcss.min.css"
+            ]
+        },
+        "underscore": {
+            "main": [
+                "underscore-min.js"
+            ]
+        },
+        "handsontable": {
+            "main": [
+                "dist/handsontable.min.css",
+                "dist/handsontable.min.js"
+            ]
+        },
+        "ng-handsontable": {
+            "main": [
+                "dist/ngHandsontable.min.js"
+            ]
+        },
+        "blueimp-md5": {
+            "main": [
+                "js/md5.min.js"
+            ]
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<ul class="radio-boxes">
+    <li 
+        class="radio-box shadow"
+        ng-class="{ 'active': $ctrl.isItemSelected(item) }"
+        ng-repeat="item in $ctrl.list"
+        ng-click="$ctrl.setSelected(item)">
+        <span>{{$ctrl.uppercase(item)}}</span>
+    </li>
+</ul>

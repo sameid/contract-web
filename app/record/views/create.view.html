@@ -1,0 +1,38 @@
+<div class="container margin-top-xl">
+<!-- 
+	<div class="loader"></div> -->
+
+	<div class="create-form">
+		<h2 class="clean-header">{{ctrl.labels.title}} {{ctrl.getRecordId()}}</h2>
+
+		<div 
+			ng-show="ctrl.loading" 
+			class="spinner">
+		</div>
+		
+		<form
+			ng-show="!ctrl.loading" 
+			class="cards" 
+			name="createRecordForm">
+			<div class="card">
+				<label>Sample Data</label>
+				<input
+					required
+					ng-model="ctrl.record.sample_data"
+					type="text" 
+					placeholder="Name" />
+
+			</div>
+		</form>
+		
+		<button 
+			ng-disabled="!ctrl.isRecordValid() && !ctrl.loading"
+			ng-click="ctrl.createRecord()"
+			class="button button-grey button-border margin-top-xs">
+			{{ctrl.labels.save}}
+		</button>
+
+	</div>
+
+</div>
+
